@@ -4,13 +4,14 @@
 An R package to interactively explore published **Fire Weather Index
 (FWI)** probability ratios (PR) for Australian bushfire risk.
 
-**Website (pkgdown):** <https://dhruvinn13.github.io/fireRiskR/>
+**Website (pkgdown):**
+<https://etc5523-2025.github.io/assignment-4-packages-and-shiny-apps-Dhruvinn13/>
 
 ## Installation
 
 ``` r
 # install.packages("remotes")
-remotes::install_github("Dhruvinn13/fireRiskR")
+remotes::install_github("ETC5523-2025/assignment-4-packages-and-shiny-apps-Dhruvinn13")
 ```
 
 ## Quick start
