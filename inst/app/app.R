@@ -62,8 +62,14 @@ server <- function(input, output, session) {
   })
   
   output$tbl <- renderTable({
-    data_react() |>
-      select(source, pr_lower, pr_best, pr_upper, note)
+    fireRiskR::fwi_pr |>
+      dplyr::filter(scenario == input$scenario) |>
+      dplyr::mutate(
+        pr_lower = ifelse(is.na(pr_lower), "—", pr_lower),
+        pr_best  = ifelse(is.na(pr_best),  "—", pr_best),
+        pr_upper = ifelse(is.na(pr_upper), "—", pr_upper)
+      ) |>
+      dplyr::select(source, pr_lower, pr_best, pr_upper, note)
   }, digits = 2)
 }
 
