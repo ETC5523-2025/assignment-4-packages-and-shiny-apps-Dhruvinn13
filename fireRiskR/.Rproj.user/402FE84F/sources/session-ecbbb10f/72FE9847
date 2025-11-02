@@ -1,0 +1,26 @@
+{
+    "id": "72FE9847",
+    "path": "C:/Monash/SEM2/ETC5523/assignment-4-packages-and-shiny-apps-Dhruvinn13/fireRiskR/inst/app/app.R",
+    "project_path": "inst/app/app.R",
+    "type": "r_source",
+    "hash": "0",
+    "contents": "",
+    "dirty": false,
+    "created": 1761972829127.0,
+    "source_on_save": false,
+    "relative_order": 6,
+    "properties": {
+        "source_window_id": "",
+        "Source": "Source",
+        "cursorPosition": "70,0",
+        "scrollLine": "29"
+    },
+    "folds": "",
+    "lastKnownWriteTime": 1761976955,
+    "encoding": "UTF-8",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1761976955455,
+    "read_only": false,
+    "read_only_alternatives": []
+}

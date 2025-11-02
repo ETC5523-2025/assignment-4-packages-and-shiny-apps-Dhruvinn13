@@ -1,0 +1,18 @@
+---
+title: "Getting started with fireRiskR"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Getting started with fireRiskR}
+  %\VignetteEngine{knitr::rmarkdown}
+---
+
+This vignette explains what the table contains, why I bundled it as a package, and how to open the app.
+
+- The table summarises probability ratios (PR), “times more likely” for extreme Fire Weather Index events.
+- Values are derived from the published figure/text; they’re meant for communication, not forecasting.
+
+
+```{r}
+library(fireRiskR)
+# launch_app()
+```

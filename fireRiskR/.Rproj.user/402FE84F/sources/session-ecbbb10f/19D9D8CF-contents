@@ -1,0 +1,13 @@
+template:
+  bootstrap: 5
+home:
+  title: "fireRiskR"
+  description: "A tiny package: a short FWI PR table + a small Shiny app."
+navbar:
+  structure:
+    left: [reference, articles]
+    right: [github]
+  components:
+    github:
+      icon: fab fa-github
+      href: https://github.com/Dhruvinn13/fireRiskR

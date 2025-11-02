@@ -1,0 +1,20 @@
+Package: fireRiskR
+Title: Explore Bushfire Risk Attribution for Australia
+Version: 0.1.0
+Authors@R: person("Dhruvin", "Modh", email = "dmod0005@student.monash.edu", role = c("aut","cre"))
+Description: A small R package with a dataset summarising published Fire Weather Index (FWI) probability ratios and a Shiny app to explore them.
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Depends: R (>= 3.5.0)
+Imports:
+    shiny,
+    ggplot2,
+    dplyr
+Suggests:
+    knitr,
+    rmarkdown
+URL: https://github.com/Dhruvinn13/fireRiskR
+BugReports: https://github.com/Dhruvinn13/fireRiskR/issues
+VignetteBuilder: knitr
+RoxygenNote: 7.3.3
