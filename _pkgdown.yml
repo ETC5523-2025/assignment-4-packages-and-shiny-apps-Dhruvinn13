@@ -1,8 +1,12 @@
+url: "https://ETC5523-2025.github.io/assignment-4-packages-and-shiny-apps-Dhruvinn13/"
+
 template:
   bootstrap: 5
+
 home:
   title: "fireRiskR"
-  description: "A tiny package: a short FWI PR table + a small Shiny app."
+  description: "A tiny teaching package: a short FWI PR table + a small Shiny app."
+
 navbar:
   structure:
     left: [reference, articles]
@@ -10,4 +14,5 @@ navbar:
   components:
     github:
       icon: fab fa-github
-      href: https://github.com/Dhruvinn13/fireRiskR
+      aria-label: "GitHub repository"
+      href: https://github.com/ETC5523-2025/assignment-4-packages-and-shiny-apps-Dhruvinn13
