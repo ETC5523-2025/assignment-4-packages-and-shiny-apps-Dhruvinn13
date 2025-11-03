@@ -62,7 +62,13 @@ head(fwi_pr)
 
 Below is a quick glance.
 
-![fireRiskR Shiny app-scenario selector, PR bar chart with error bars,
-and values table](man/figures/README-app.png) \## Author
+<figure>
+<img src="man/figures/README-app.png"
+alt="fireRiskR Shiny app-scenario selector, PR bar chart with error bars, and values table" />
+<figcaption aria-hidden="true">fireRiskR Shiny app-scenario selector, PR
+bar chart with error bars, and values table</figcaption>
+</figure>
+
+## Author
 
 Dhruvin Modh
