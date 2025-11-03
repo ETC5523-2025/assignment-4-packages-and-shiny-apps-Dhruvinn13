@@ -62,6 +62,4 @@ Below is a quick glance.
 
 ![fireRiskR Shiny app-scenario selector, PR bar chart with error bars, and values table](man/figures/README-app.png)
 
-## Author
 
-Dhruvin Modh
