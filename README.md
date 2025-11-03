@@ -7,6 +7,19 @@ An R package to interactively explore published **Fire Weather Index
 **Website (pkgdown):**
 <https://etc5523-2025.github.io/assignment-4-packages-and-shiny-apps-Dhruvinn13/>
 
+## Features
+
+- Packaged dataset: **`fwi_pr`** (short, documented summary table)
+- Shiny app in **`inst/app/app.R`** (scenario selector + PR bar chart +
+  values table)
+- CSV download of the filtered table from inside the app
+- roxygen2 docs, vignette, and a pkgdown site
+
+> **Note:** Values are summarised/derived from *van Oldenborgh et
+> al. (2021)*.
+
+------------------------------------------------------------------------
+
 ## Installation
 
 ``` r
@@ -21,6 +34,21 @@ library(fireRiskR)
 launch_app()
 ```
 
+## Example
+
+``` r
+library(fireRiskR)
+
+# Which scenarios are available?
+unique(fwi_pr$scenario)
+
+# Simple summary by source (ignores NAs)
+aggregate(pr_best ~ source, data = fwi_pr, FUN = function(x) mean(x, na.rm = TRUE))
+
+# Open the app
+launch_app()
+```
+
 ## Data
 
 The package ships a small table `fwi_pr` with published probability
@@ -29,3 +57,12 @@ ratios (“times more likely”) for extreme Fire Weather Index events.
 ``` r
 head(fwi_pr)
 ```
+
+## App
+
+Below is a quick glance.
+
+![fireRiskR Shiny app-scenario selector, PR bar chart with error bars,
+and values table](man/figures/README-app.png) \## Author
+
+Dhruvin Modh

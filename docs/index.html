@@ -54,6 +54,20 @@
 <p>An R package to interactively explore published <strong>Fire Weather Index (FWI)</strong> probability ratios (PR) for Australian bushfire risk.</p>
 <p><strong>Website (pkgdown):</strong> <a href="https://etc5523-2025.github.io/assignment-4-packages-and-shiny-apps-Dhruvinn13/" class="external-link uri">https://etc5523-2025.github.io/assignment-4-packages-and-shiny-apps-Dhruvinn13/</a></p>
 <div class="section level2">
+<h2 id="features">Features<a class="anchor" aria-label="anchor" href="#features"></a>
+</h2>
+<ul>
+<li>Packaged dataset: <strong><code>fwi_pr</code></strong> (short, documented summary table)</li>
+<li>Shiny app in <strong><code>inst/app/app.R</code></strong> (scenario selector + PR bar chart + values table)</li>
+<li>CSV download of the filtered table from inside the app</li>
+<li>roxygen2 docs, vignette, and a pkgdown site</li>
+</ul>
+<blockquote>
+<p><strong>Note:</strong> Values are summarised/derived from <em>van Oldenborgh et al. (2021)</em>.</p>
+</blockquote>
+<hr>
+</div>
+<div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
 </h2>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
@@ -68,11 +82,33 @@
 <span><span class="fu"><a href="reference/launch_app.html">launch_app</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
+<h2 id="example">Example<a class="anchor" aria-label="anchor" href="#example"></a>
+</h2>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ETC5523-2025.github.io/assignment-4-packages-and-shiny-apps-Dhruvinn13/">fireRiskR</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Which scenarios are available?</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/unique.html" class="external-link">unique</a></span><span class="op">(</span><span class="va">fwi_pr</span><span class="op">$</span><span class="va">scenario</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Simple summary by source (ignores NAs)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/stats/aggregate.html" class="external-link">aggregate</a></span><span class="op">(</span><span class="va">pr_best</span> <span class="op">~</span> <span class="va">source</span>, data <span class="op">=</span> <span class="va">fwi_pr</span>, FUN <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html" class="external-link">mean</a></span><span class="op">(</span><span class="va">x</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Open the app</span></span>
+<span><span class="fu"><a href="reference/launch_app.html">launch_app</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+</div>
+<div class="section level2">
 <h2 id="data">Data<a class="anchor" aria-label="anchor" href="#data"></a>
 </h2>
 <p>The package ships a small table <code>fwi_pr</code> with published probability ratios (“times more likely”) for extreme Fire Weather Index events.</p>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">fwi_pr</span><span class="op">)</span></span></code></pre></div>
+</div>
+<div class="section level2">
+<h2 id="app">App<a class="anchor" aria-label="anchor" href="#app"></a>
+</h2>
+<p>Below is a quick glance.</p>
+<p><img src="reference/figures/README-app.png" alt="fireRiskR Shiny app-scenario selector, PR bar chart with error bars, and values table"> ## Author</p>
+<p>Dhruvin Modh</p>
 </div>
 </div>
   </main><aside class="col-md-3"><div class="links">
