@@ -1,15 +1,46 @@
 library(shiny)
 library(ggplot2)
 library(dplyr)
+library(bslib)     
+library(thematic)  
 
 ui <- fluidPage(
+  theme = bs_theme(
+    version = 5,
+    bootswatch = "minty",                        
+    primary = "#0ea5e9",                         
+    secondary = "#0f172a",
+    success = "#10b981",
+    info = "#06b6d4",
+    warning = "#f59e0b",
+    danger = "#ef4444",
+    base_font = font_google("Poppins"),
+    heading_font = font_google("Poppins"),
+    bg = "#f7fafc", fg = "#0f172a"
+  ),
   title = "fireRiskR • Fire Weather Risk Explorer",
   titlePanel("fireRiskR • Fire Weather Risk Explorer"),
+  
+  # Extra polish (kept your existing classes, just enhanced them)
   tags$head(tags$style(HTML("
-    body { background:#f8fafc; }
-    .panel { background:#ffffff; border-radius:14px; box-shadow:0 4px 12px rgba(0,0,0,.06); padding:16px; }
-    .muted { color:#6b7280; }
-    .download-btn .btn { display:flex; align-items:center; gap:.5rem; }
+    body { background:#f7fafc; }
+    .panel { 
+      background:#ffffff; border-radius:18px; 
+      box-shadow:0 10px 24px rgba(2,8,23,.06);
+      padding:18px; border:1px solid rgba(2,8,23,.06);
+    }
+    .muted { color:#64748b; }
+    .download-btn .btn { display:flex; align-items:center; gap:.6rem; }
+    .btn-primary {
+      box-shadow:0 6px 14px rgba(14,165,233,.22);
+      border-radius:12px; padding:.5rem .9rem; font-weight:600;
+    }
+    /* Gradient title */
+    .container h2 {
+      background: linear-gradient(90deg,#0ea5e9,#22c55e);
+      -webkit-background-clip: text; background-clip:text; color:transparent;
+      font-weight:800; letter-spacing:.3px;
+    }
   "))),
   div(class="muted",
       "Interactive view of published probability ratios (PR) for extreme FWI events."
@@ -47,6 +78,7 @@ ui <- fluidPage(
 )
 
 server <- function(input, output, session) {
+  thematic_shiny()  # NEW: sync ggplot with the Bootstrap theme colors
   
   data_react <- reactive({
     fireRiskR::fwi_pr |>
@@ -55,12 +87,10 @@ server <- function(input, output, session) {
   
   output$bars <- renderPlot({
     df <- data_react()
-    
     y_bar <- ifelse(is.na(df$pr_best), df$pr_lower, df$pr_best)
     y_err <- ifelse(is.na(df$pr_upper),
                     ifelse(is.na(df$pr_best), df$pr_lower, df$pr_best),
                     df$pr_upper)
-    
     ymax <- max(y_bar, y_err, na.rm = TRUE) * 1.25
     
     ggplot(df, aes(x = source)) +

@@ -5,18 +5,19 @@ Authors@R: person("Dhruvin", "Modh", email = "dmod0005@student.monash.edu", role
 Description: A small R package with a dataset summarising published Fire Weather Index (FWI) probability ratios and a Shiny app to explore them.
 License: MIT + file LICENSE
 Encoding: UTF-8
-LazyData: true
 Depends: R (>= 3.5.0)
 Imports:
     shiny,
     ggplot2,
-    dplyr
+    dplyr,
+    readr,
+    bslib,
+    thematic
 Suggests:
     knitr,
     rmarkdown
-URL: https://github.com/Dhruvinn13/fireRiskR
-BugReports: https://github.com/Dhruvinn13/fireRiskR/issues
-VignetteBuilder: knitr
 URL: https://ETC5523-2025.github.io/assignment-4-packages-and-shiny-apps-Dhruvinn13/, https://github.com/ETC5523-2025/assignment-4-packages-and-shiny-apps-Dhruvinn13
 BugReports: https://github.com/ETC5523-2025/assignment-4-packages-and-shiny-apps-Dhruvinn13/issues
+VignetteBuilder: knitr
 RoxygenNote: 7.3.3
+LazyData: true

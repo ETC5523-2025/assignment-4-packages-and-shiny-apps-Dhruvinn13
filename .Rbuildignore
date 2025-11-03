@@ -7,3 +7,5 @@
 ^README\.html$
 ^_pkgdown\.yml$
 ^data-raw$
+^docs$
+^pkgdown$

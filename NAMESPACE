@@ -3,3 +3,7 @@
 export(launch_app)
 import(dplyr)
 import(ggplot2)
+importFrom(bslib,bs_theme)
+importFrom(bslib,font_google)
+importFrom(readr,write_excel_csv)
+importFrom(thematic,thematic_shiny)
