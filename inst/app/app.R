@@ -21,7 +21,6 @@ ui <- fluidPage(
   title = "fireRiskR • Fire Weather Risk Explorer",
   titlePanel("fireRiskR • Fire Weather Risk Explorer"),
   
-  # Extra polish (kept your existing classes, just enhanced them)
   tags$head(tags$style(HTML("
     body { background:#f7fafc; }
     .panel { 
@@ -78,7 +77,7 @@ ui <- fluidPage(
 )
 
 server <- function(input, output, session) {
-  thematic_shiny()  # NEW: sync ggplot with the Bootstrap theme colors
+  thematic_shiny() 
   
   data_react <- reactive({
     fireRiskR::fwi_pr |>
@@ -99,7 +98,14 @@ server <- function(input, output, session) {
       labs(x = NULL, y = "PR (times more likely)",
            title = paste("FWI probability ratios:", unique(df$scenario))) +
       theme_minimal(base_size = 13) +
+      theme(
+        axis.text.x = element_text(size = 14, face = "bold"),
+        axis.text.y = element_text(size = 14),
+        axis.title.y = element_text(size = 15, face = "bold"),
+        plot.title  = element_text(size = 16, face = "bold", hjust = 0.5)
+      ) +
       coord_cartesian(ylim = c(0, ymax))
+    
   })
   
   output$tbl <- renderTable({
